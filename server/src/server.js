@@ -1,7 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const routes = require('./routes/routes.js')
-const connectDB = require('./db/connect')
+const routes = require('./routes.js')
 require('dotenv').config()
 
 const app = express()
@@ -16,7 +15,7 @@ app.use('/api/tasks', routes)
 // only starts server if DB connection is good
 const start = async () => {
   try {
-    await mongoose.connect(process.env.DB_URI_TASK_MANAGER)
+    await mongoose.connect(process.env.DB_URI)
     app.listen(port, console.log(`Listening on port ${port}`))
   } catch (err) {
     console.log(err)
