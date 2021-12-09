@@ -1,0 +1,35 @@
+.Content {
+  align-items: center;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  width: 95%;
+}
+
+.Title {
+  margin-bottom: 1rem;
+}
+
+.FormControl {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.FormInput {
+  flex-grow: 1;
+  font-size: 1rem;
+}
+
+.FormSubmit {
+  background-color: #4b0082;
+  border: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.25rem;
+}
