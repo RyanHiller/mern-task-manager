@@ -1,9 +1,10 @@
-.Content {
+.Container {
   align-items: center;
   background-color: #ccc;
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
+  padding: 0.5rem;
   width: 100%;
 }

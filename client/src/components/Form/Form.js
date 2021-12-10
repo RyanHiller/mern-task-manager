@@ -19,7 +19,7 @@ const Form = () => {
   }
 
   return (
-    <form className={styles.Content} onSubmit={handleSubmit}>
+    <form className={styles.Container} onSubmit={handleSubmit}>
       <h1 className={styles.Title}>Task Manager</h1>
       <div className={styles.FormControl}>
         <input
