@@ -1,0 +1,35 @@
+.Container {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  padding: 1rem;
+  width: 100%;
+}
+
+.Name {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+.Controls svg:first-child {
+  margin-right: 0.5rem;
+}
+
+.Icons {
+  color: red;
+}
+
+@media screen and (min-width: 768px) {
+  .Container {
+    width: 50%;
+  }
+}
+
+@media (min-width: 992px) {
+  .Container {
+    width: calc(100% / 3);
+  }
+}
