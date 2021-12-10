@@ -1,9 +1,21 @@
-import React, { useState } from 'react'
+import React from 'react'
+import axios from 'axios'
 
 import * as styles from './Form.module.css'
 
-const Form = () => {
-  const [inputValue, setInputValue] = useState('')
+const Form = (props) => {
+  const [inputValue, setInputValue] = React.useState('')
+
+  const createTask = async (name) => {
+    try {
+      const res = await axios.post('http://localhost:3001/api/tasks', {
+        name,
+      })
+      console.log(res.data)
+    } catch (err) {
+      console.error(err)
+    }
+  }
 
   const handleChange = (event) => {
     setInputValue(event.target.value)
@@ -12,9 +24,9 @@ const Form = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
     if (inputValue.trim() !== '') {
-      //TODO: Add task to database
+      createTask(inputValue.trim())
+      props.updateTasks()
     }
-
     setInputValue('')
   }
 
