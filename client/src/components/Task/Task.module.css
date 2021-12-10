@@ -20,6 +20,10 @@
   font-weight: normal;
 }
 
+.Completed {
+  text-decoration: line-through;
+}
+
 .Controls svg:first-child {
   margin-right: 0.5rem;
 }

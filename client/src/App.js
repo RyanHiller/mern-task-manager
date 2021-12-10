@@ -15,7 +15,7 @@ const App = () => {
       const res = await axios.get('http://localhost:3001/api/tasks')
       setTasks(res.data.tasks)
     } catch (err) {
-      console.log(err)
+      console.error(err)
     }
   }
 
@@ -31,7 +31,7 @@ const App = () => {
   return (
     <div className={styles.Container}>
       <Form updateTasks={updateTasks} />
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} updateTasks={updateTasks} />
     </div>
   )
 }

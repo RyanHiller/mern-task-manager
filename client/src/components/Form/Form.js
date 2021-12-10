@@ -8,10 +8,10 @@ const Form = (props) => {
 
   const createTask = async (name) => {
     try {
-      const res = await axios.post('http://localhost:3001/api/tasks', {
+      await axios.post('http://localhost:3001/api/tasks', {
         name,
       })
-      console.log(res.data)
+      props.updateTasks()
     } catch (err) {
       console.error(err)
     }
@@ -25,7 +25,6 @@ const Form = (props) => {
     event.preventDefault()
     if (inputValue.trim() !== '') {
       createTask(inputValue.trim())
-      props.updateTasks()
     }
     setInputValue('')
   }
