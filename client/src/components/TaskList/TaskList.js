@@ -1,18 +1,20 @@
 import React from 'react'
 
+import { TaskContext } from '../../App'
 import Task from '../Task/Task'
 
 import * as styles from './TaskList.module.css'
 
-const TaskList = (props) => {
-  const taskList = props.tasks.map((task, idx) => {
+const TaskList = () => {
+  const taskContext = React.useContext(TaskContext)
+
+  const taskList = taskContext.tasks.map((task, idx) => {
     return (
       <Task
         key={idx}
         name={task.name}
         id={task._id}
         completed={task.completed}
-        updateTasks={props.updateTasks}
       />
     )
   })

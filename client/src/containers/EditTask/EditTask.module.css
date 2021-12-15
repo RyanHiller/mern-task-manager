@@ -13,30 +13,49 @@
 
 .Title {
   font-size: 2rem;
-  font-weight: normal;
   margin-bottom: 1rem;
 }
 
-.FormControl {
-  display: flex;
-  justify-content: space-between;
+.EditFields {
+  display: grid;
+  grid-column-gap: 10%;
+  grid-row-gap: 0.5rem;
+  grid-template-columns: 20% 70%;
+  grid-template-rows: repeat(auto-fill, 1.25rem);
+
   width: 100%;
 }
 
-.FormInput {
-  flex-grow: 1;
-  font-size: 1rem;
+.EditFields label {
+  grid-column: 1;
+  font-weight: bold;
 }
 
-.FormSubmit {
+.EditFields p,
+.EditFields input {
+  grid-column: 2;
+}
+
+.NameInput {
+  font-size: 1rem;
+  line-height: 100%;
+}
+
+.CompletedInput {
+  height: 100%;
+  width: fit-content;
+}
+
+.Submit {
   background-color: #4b0082;
   border: 0;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-radius: 5px;
   color: #fff;
   font-family: inherit;
   font-size: 1rem;
+  margin-top: 1rem;
   padding: 0.25rem;
+  width: 80%;
 }
 
 @media screen and (min-width: 768px) {

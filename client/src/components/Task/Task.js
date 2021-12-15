@@ -1,5 +1,8 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+
+import { TaskContext } from '../../App'
 
 import { IconContext } from 'react-icons/lib'
 import { AiOutlineCheckCircle } from 'react-icons/ai'
@@ -8,27 +11,40 @@ import { FiEdit, FiTrash2 } from 'react-icons/fi'
 import * as styles from './Task.module.css'
 
 const Task = (props) => {
+  const navigate = useNavigate()
+  const taskContext = React.useContext(TaskContext)
+
   const toggleCompleted = async () => {
     try {
       await axios.patch(`http://localhost:3001/api/tasks/${props.id}`, {
         completed: !props.completed,
       })
-      props.updateTasks()
+      taskContext.updateTasks()
     } catch (err) {
       console.error(err)
     }
+  }
+
+  // creates a new object that is held in global context editTask
+  const editTask = () => {
+    taskContext.setEditTask({
+      id: props.id,
+      name: props.name,
+      completed: props.completed,
+    })
+    navigate('edit')
   }
 
   const deleteTask = async () => {
     try {
       await axios.delete(`http://localhost:3001/api/tasks/${props.id}`)
-      props.updateTasks()
+      taskContext.updateTasks()
     } catch (err) {
       console.error(err)
     }
   }
 
-  const completedIconValues = props.completed
+  const completedIconStyles = props.completed
     ? { color: 'green', size: '1.5em', style: { cursor: 'pointer' } }
     : { color: '#999', size: '1.5em', style: { cursor: 'pointer' } }
 
@@ -38,7 +54,7 @@ const Task = (props) => {
 
   return (
     <li className={styles.Container}>
-      <IconContext.Provider value={completedIconValues}>
+      <IconContext.Provider value={completedIconStyles}>
         <AiOutlineCheckCircle onClick={toggleCompleted} />
       </IconContext.Provider>
       <h2 className={completedNameStyle}>{props.name || 'Loading...'}</h2>
@@ -46,7 +62,7 @@ const Task = (props) => {
         <IconContext.Provider
           value={{ size: '1.5em', style: { cursor: 'pointer' } }}
         >
-          <FiEdit />
+          <FiEdit onClick={editTask} />
         </IconContext.Provider>
         <IconContext.Provider
           value={{

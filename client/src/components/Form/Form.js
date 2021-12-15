@@ -1,17 +1,20 @@
 import React from 'react'
 import axios from 'axios'
 
+import { TaskContext } from '../../App'
+
 import * as styles from './Form.module.css'
 
-const Form = (props) => {
+const Form = () => {
   const [inputValue, setInputValue] = React.useState('')
+  const taskContext = React.useContext(TaskContext)
 
   const createTask = async (name) => {
     try {
       await axios.post('http://localhost:3001/api/tasks', {
         name,
       })
-      props.updateTasks()
+      taskContext.updateTasks()
     } catch (err) {
       console.error(err)
     }
