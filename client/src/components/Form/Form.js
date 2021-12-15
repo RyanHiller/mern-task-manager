@@ -11,7 +11,7 @@ const Form = () => {
 
   const createTask = async (name) => {
     try {
-      await axios.post('http://localhost:3001/api/tasks', {
+      await axios.post('http://localhost:3000/api/tasks', {
         name,
       })
       taskContext.updateTasks()

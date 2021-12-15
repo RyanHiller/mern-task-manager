@@ -16,7 +16,7 @@ const App = () => {
 
   const getTasks = async () => {
     try {
-      const res = await axios.get('http://localhost:3001/api/tasks')
+      const res = await axios.get('http://localhost:3000/api/tasks')
       setTasks(res.data.tasks)
     } catch (err) {
       console.error(err)

@@ -5,9 +5,10 @@ const routes = require('./routes.js')
 require('dotenv').config()
 
 const app = express()
-const port = process.env.SERVER_PORT || 3001
+const port = process.env.SERVER_PORT || 3000
 
 // Middleware
+app.use(express.static('./public'))
 app.use(cors())
 app.use(express.json())
 

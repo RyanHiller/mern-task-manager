@@ -16,7 +16,7 @@ const Task = (props) => {
 
   const toggleCompleted = async () => {
     try {
-      await axios.patch(`http://localhost:3001/api/tasks/${props.id}`, {
+      await axios.patch(`http://localhost:3000/api/tasks/${props.id}`, {
         completed: !props.completed,
       })
       taskContext.updateTasks()
@@ -37,7 +37,7 @@ const Task = (props) => {
 
   const deleteTask = async () => {
     try {
-      await axios.delete(`http://localhost:3001/api/tasks/${props.id}`)
+      await axios.delete(`http://localhost:3000/api/tasks/${props.id}`)
       taskContext.updateTasks()
     } catch (err) {
       console.error(err)

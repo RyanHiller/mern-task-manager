@@ -38,7 +38,7 @@ const EditTask = () => {
       )
     ) {
       try {
-        await axios.patch(`http://localhost:3001/api/tasks/${id}`, {
+        await axios.patch(`http://localhost:3000/api/tasks/${id}`, {
           name: name,
           completed: completed,
         })
